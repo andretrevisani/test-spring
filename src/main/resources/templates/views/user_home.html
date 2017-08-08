@@ -8,6 +8,16 @@
 	<body>
 		<h1>User Home</h1>
 		Bem vindo <span th:text="${loggedUser.login}"></span>!
+		
+		<br/>
+		Suas tasks:
+		<div th:each="task : ${loggedUser.tasks}">
+			Name: <span th:text="${task.name}"></span>
+		</div>
+		
+		<br/>
+		O que você quer fazer?
+		<a href="/tasks/new-task">Criar nova task</a>
 	</body>
 </html>
 

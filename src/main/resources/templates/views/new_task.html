@@ -1,34 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Bem Vindo!</title>
+		<title>Criar Task</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
 
 	<body>
-		<h1>Bem vindo!</h1>
+		<h1>Criar Task</h1>
 		<div style="border: 1px solid black"> <!-- estilo "chumbado", deveria estar em um CSS -->
-			<div>Entre com seu usuário e senha</div>
 			<div style="color: red"><!-- estilo chumbado no código, deveria estar em um CSS -->
 				<span th:text="${msg}"></span><!-- mensagem de erro vai aqui -->
 			</div>
-			<form th:action="@{/loginAction}" th:object="${loginData}" method="POST">
+			
+			<form th:action="@{/tasks/create-task-action}" th:object="${taskData}" method="POST">
 				<div>
-					<label for="nome">Login:</label>
-					<input type="text" th:field="*{login}" />
-				</div>
-				<div>
-					<label for="password">Password:</label>
-					<input type="password" th:field="*{password}" />
+					<label for="nome">Name:</label>
+					<input type="text" th:field="*{name}" />
 				</div>
 				<div class="button">
 					<button type="submit">Login</button>
 				</div>
 			</form>
-		</div>
-		
-		<div>
-			Não tenho usuário: <a href="/users/register">cadastrar</a>
 		</div>
 	</body>
 </html>
